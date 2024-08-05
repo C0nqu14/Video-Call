@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Feed</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <h1>Video Feed</h1>
+    <img id="video-feed" src="">
+
+    <script type="text/javascript">
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        socket.on('video_feed', function(data) {
+            var img = document.getElementById('video-feed');
+            img.src = 'data:image/jpeg;base64,' + data.image;
+        });
+    </script>
+</body>
+</html>
